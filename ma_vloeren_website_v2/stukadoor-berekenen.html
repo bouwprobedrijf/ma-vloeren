@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stukadoor berekenen | M.A. Vloeren</title>
+    <link rel="stylesheet" href="stukadoor.css">
+    <script src="stukadoor.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="brand">
+        <span class="brand-icon">⌂</span>
+        <span>
+            M.A. VLOEREN
+            <small>VLOEREN &amp; RENOVATIE</small>
+        </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+            aria-expanded="false" aria-controls="mainNav">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#diensten">Diensten</a>
+        <a href="index.html#projecten">Projecten</a>
+        <a href="index.html#prijzen">Prijzen</a>
+        <a href="index.html#over-ons">Over ons</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#contact">Offerte aanvragen ↗</a>
+    </nav>
+</header>
+
+<main class="page">
+
+    <p class="eyebrow">STUKADOOR · CALCULATIE</p>
+
+    <h1>Bereken uw <span>stukadoorsprijs</span></h1>
+
+    <p class="intro" id="pageIntro">
+        Vul uw gegevens in om de totale prijsindicatie te berekenen.
+    </p>
+
+    <div class="layout">
+
+        <section class="panel">
+            <h2 id="selectedServiceTitle">Uw werkzaamheden</h2>
+
+            <form id="stukadoorForm">
+
+                <div class="form-field" id="materialsField">
+                    <label for="materials">Uitvoering</label>
+                    <select id="materials" required>
+                        <option value="labor">Alleen arbeid</option>
+                        <option value="included">Arbeid inclusief materiaal</option>
+                    </select>
+                </div>
+
+                <div class="form-field" id="areaField">
+                    <label for="area">Oppervlakte (m²)</label>
+                    <input
+                        id="area"
+                        type="number"
+                        min="1"
+                        max="10000"
+                        step="0.5"
+                        placeholder="Bijvoorbeeld 40"
+                        required
+                    >
+                    <p class="help">Vul het totale aantal vierkante meters in.</p>
+                </div>
+
+                <div class="form-field hidden" id="hoursField">
+                    <label for="hours">Geschatte werktijd (uren)</label>
+                    <input
+                        id="hours"
+                        type="number"
+                        min="1"
+                        max="1000"
+                        step="0.5"
+                        placeholder="Bijvoorbeeld 2"
+                    >
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Bereken totale prijs <span>→</span>
+                </button>
+
+            </form>
+        </section>
+
+        <aside class="panel result-panel" id="resultPanel" aria-live="polite">
+
+            <div class="result-icon">◇</div>
+
+            <p class="eyebrow">UW OVERZICHT</p>
+
+            <h2>Totale prijs</h2>
+
+            <p class="result-description">
+                Vul uw keuzes in om de totale prijsindicatie te berekenen.
+            </p>
+
+            <div class="total-box">
+                <span class="total-label">Totale prijsindicatie</span>
+                <output id="totalPrice">Nog niet berekend</output>
+                <p id="resultNote">Indicatie exclusief btw.</p>
+            </div>
+
+            <a class="secondary-button" href="index.html#contact">
+                Offerte aanvragen <span>→</span>
+            </a>
+
+            <p class="fine-print">
+                De definitieve offerte kan afhangen van de ondergrond,
+                de staat van de wanden of plafonds en de werkzaamheden ter plaatse.
+            </p>
+
+        </aside>
+
+    </div>
+
+    <a class="back-link" href="stukadoor.html">
+        ← Terug naar alle stukadoorsdiensten
+    </a>
+
+</main>
+
+<footer>
+    © <span id="currentYear"></span> M.A. Vloeren · Vloeren &amp; renovatie
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vloeren berekenen | M.A. Vloeren</title>
+  <link rel="stylesheet" href="vloeren.css">
+  <script src="vloeren.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="M.A. Vloeren home">
+      <span class="brand-icon" aria-hidden="true">⌂</span>
+      <span>M.A. VLOEREN<small>VLOEREN &amp; RENOVATIE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Hoofdnavigatie">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#diensten">Diensten</a>
+      <a href="index.html#projecten">Projecten</a>
+      <a href="prijzen.html">Prijzen</a>
+      <a href="index.html#over-ons">Over ons</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="nav-cta" href="index.html#contact">↗ Offerte aanvragen</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">VLOEREN · CALCULATIE</p>
+    <h1>Bereken uw <span>vloerprijs</span></h1>
+    <p class="intro">Kies het type vloer en vul de oppervlakte in. U ziet straks alleen de totale prijsindicatie; interne meterprijzen en berekeningen blijven verborgen.</p>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Uw vloer samenstellen</h2>
+        <form id="floorForm">
+          <div class="form-field">
+            <label for="floorType">Soort vloer</label>
+            <select id="floorType" required>
+              <option value="">Kies uw vloertype</option>
+              <option value="visgraat">Visgraat</option>
+              <option value="klik-pvc">Klik PVC</option>
+              <option value="laminaat">Laminaat</option>
+              
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="area">Oppervlakte (m²)</label>
+            <input id="area" type="number" min="1" max="10000" step="0.5" placeholder="Bijvoorbeeld 50" required>
+            <p class="help">Vul de totale oppervlakte in vierkante meters in.</p>
+          </div>
+
+          
+<fieldset class="extras">
+  <legend>Extra werkzaamheden</legend>
+
+  <!-- Oude vloer verwijderen -->
+  <div class="extra-option">
+    <label class="check-row" for="removeOld">
+      <input id="removeOld" type="checkbox">
+      <span>
+        <strong>Oude vloer verwijderen</strong>
+        <small>Indien nodig</small>
+      </span>
+    </label>
+
+    <div class="extra-input" id="removeOldFields" hidden>
+      <label for="removeOldArea">Oppervlakte verwijderen (m²)</label>
+      <input
+        id="removeOldArea"
+        type="number"
+        min="0.5"
+        step="0.5"
+        placeholder="Bijvoorbeeld 40"
+      >
+    </div>
+  </div>
+
+  <!-- Ondervloer egaliseren -->
+  <div class="extra-option">
+    <label class="check-row" for="levelFloor">
+      <input id="levelFloor" type="checkbox">
+      <span>
+        <strong>Ondervloer egaliseren</strong>
+        <small>Indien nodig</small>
+      </span>
+    </label>
+
+    <div class="extra-input" id="levelFloorFields" hidden>
+      <label for="levelFloorArea">Oppervlakte egaliseren (m²)</label>
+      <input
+        id="levelFloorArea"
+        type="number"
+        min="0.5"
+        step="0.5"
+        placeholder="Bijvoorbeeld 50"
+      >
+    </div>
+  </div>
+
+  <!-- Plinten plaatsen -->
+  <div class="extra-option">
+    <label class="check-row" for="skirting">
+      <input id="skirting" type="checkbox">
+      <span>
+        <strong>Plinten plaatsen</strong>
+        <small>Vul de benodigde lengte in</small>
+      </span>
+    </label>
+
+    <div class="extra-input" id="skirtingFields" hidden>
+      <label for="skirtingMeters">Lengte plinten (strekkende meter)</label>
+      <input
+        id="skirtingMeters"
+        type="number"
+        min="0.5"
+        step="0.5"
+        placeholder="Bijvoorbeeld 35"
+      >
+    </div>
+  </div>
+</fieldset>
+
+
+          <button class="primary-button" type="submit">Bereken totale prijs <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <aside
+  class="panel result-panel"
+  id="resultPanel"
+  aria-live="polite"
+>
+        <div class="result-icon" aria-hidden="true">◇</div>
+        <p class="eyebrow">UW OVERZICHT</p>
+        <h2>Totale prijs</h2>
+        <p class="result-description">Vul uw keuzes in om verder te gaan. De prijsberekening wordt geactiveerd zodra de tarieven zijn ingesteld.</p>
+        <div class="total-box">
+          <span class="total-label">Totale prijsindicatie</span>
+          <output id="totalPrice">Nog niet berekend</output>
+          <p id="resultNote">De tarieven worden later toegevoegd.</p>
+        </div>
+        <a class="secondary-button" href="index.html#contact">Offerte aanvragen <span aria-hidden="true">→</span></a>
+        <p class="fine-print">De definitieve offerte kan afhangen van de ondergrond, materiaalkeuze en werkzaamheden ter plaatse.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>© <span id="currentYear"></span> M.A. Vloeren · Vloeren &amp; renovatie</footer>
+ 
+</body>
+</html>
