@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Renovatie berekenen | M.A. Vloeren</title>
+
+    <meta name="description"
+          content="Bereken eenvoudig de indicatieve kosten voor renovatiewerkzaamheden bij M.A. Vloeren.">
+
+    <link rel="stylesheet" href="renovatie.css">
+    <script src="renovatie.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo">
+        <span class="logo-icon">⌂</span>
+
+        <span>
+            <strong>M.A. VLOEREN</strong>
+            <small>VLOEREN &amp; RENOVATIE</small>
+        </span>
+    </a>
+
+    <a href="index.html#contact" class="header-button">
+        ↗ Offerte aanvragen
+    </a>
+</header>
+
+<main>
+
+    <section class="hero">
+        <span class="eyebrow">RENOVATIE · CALCULATIE</span>
+
+        <h1>Bereken uw <span>renovatie</span></h1>
+
+        <p>
+            Bereken eenvoudig een prijsindicatie voor uw
+            renovatiewerkzaamheden.
+        </p>
+    </section>
+
+    <section class="calculator-section" id="renovatie-calculator">
+
+        <div class="section-heading">
+            <span class="eyebrow">UW PROJECT</span>
+            <h2>Uw renovatie samenstellen</h2>
+
+            <p>
+                Kies de gewenste werkzaamheden en vul de benodigde
+                hoeveelheden in.
+            </p>
+        </div>
+
+        <form id="renovatieForm">
+
+            <fieldset>
+                <legend>Verwijderen en slopen</legend>
+
+                <div class="form-group">
+                    <label for="laminaat">
+                        Laminaat verwijderen (m²)
+                    </label>
+
+                    <input type="number" id="laminaat"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 40">
+                </div>
+
+                <div class="form-group">
+                    <label for="pvc">
+                        Gelijmde PVC-vloer verwijderen (m²)
+                    </label>
+
+                    <input type="number" id="pvc"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 20">
+                </div>
+
+                <div class="form-group">
+                    <label for="vloer">
+                        Vloertegels verwijderen (m²)
+                    </label>
+
+                    <input type="number" id="vloer"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 15">
+                </div>
+
+                <div class="form-group">
+                    <label for="wandtegels">
+                        Wandtegels verwijderen (m²)
+                    </label>
+
+                    <input type="number" id="wandtegels"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 10">
+                </div>
+
+                <div class="form-group">
+                    <label for="plinten">
+                        Plinten verwijderen (strekkende meter)
+                    </label>
+
+                    <input type="number" id="plinten"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 20">
+                </div>
+
+                <div class="form-group">
+                    <label for="behang">
+                        Behang verwijderen (m²)
+                    </label>
+
+                    <input type="number" id="behang"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 30">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sloopwerk en renovatie</legend>
+
+                <div class="form-group">
+                    <label for="sloopwand">
+                        Niet-dragende muur slopen (m²)
+                    </label>
+
+                    <input type="number" id="sloopwand"
+                           min="0" step="0.5" placeholder="Bijvoorbeeld 8">
+                </div>
+
+                <div class="form-group">
+                    <label for="keuken">
+                        Oude keuken verwijderen (aantal)
+                    </label>
+
+                    <input type="number" id="keuken"
+                           min="0" step="1" placeholder="Bijvoorbeeld 1">
+                </div>
+
+                <div class="form-group">
+                    <label for="badkamer">
+                        Oude badkamer verwijderen (aantal)
+                    </label>
+
+                    <input type="number" id="badkamer"
+                           min="0" step="1" placeholder="Bijvoorbeeld 1">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Afval en overige werkzaamheden</legend>
+
+                <div class="form-group">
+                    <label for="container">
+                        Container voor bouwafval
+                    </label>
+
+                    <select id="container">
+                        <option value="0">Geen container</option>
+                        <option value="350">Kleine container — € 350</option>
+                        <option value="500">Middelgrote container — € 500</option>
+                        <option value="750">Grote container — € 750</option>
+                    </select>
+
+                    <small class="field-note">
+                        Indicatieve prijs; transport en afvalkosten
+                        kunnen verschillen.
+                    </small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Extra informatie</legend>
+
+                <div class="form-group">
+                    <label for="materiaal">
+                        Materialen
+                    </label>
+
+                    <select id="materiaal">
+                        <option value="arbeid">
+                            Alleen arbeid
+                        </option>
+
+                        <option value="inclusief">
+                            Arbeid en materialen
+                        </option>
+                    </select>
+
+                    <small class="field-note">
+                        Bij inclusief materialen wordt een indicatieve
+                        materiaaltoeslag berekend.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="opmerkingen">
+                        Aanvullende informatie (optioneel)
+                    </label>
+
+                    <textarea id="opmerkingen" rows="4"
+                              placeholder="Beschrijf uw renovatieproject..."></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="calculate-button">
+                Bereken totale prijs
+                <span>→</span>
+            </button>
+
+        </form>
+
+        <section id="resultaat" class="result-box" aria-live="polite" hidden>
+            <span class="eyebrow">PRIJSINDICATIE</span>
+
+            <h2>Uw renovatiekosten</h2>
+
+            <div id="prijsRegels"></div>
+
+            <div class="total-line">
+                <span>Totaal exclusief btw</span>
+                <strong id="totaalEx">€ 0,00</strong>
+            </div>
+
+            <div class="total-line">
+                <span>Btw (21%, indicatief)</span>
+                <strong id="btwBedrag">€ 0,00</strong>
+            </div>
+
+            <div class="grand-total">
+                <span>Totaal inclusief btw</span>
+                <strong id="totaalIncl">€ 0,00</strong>
+            </div>
+
+            <p class="disclaimer">
+                Dit is een vrijblijvende prijsindicatie, geen definitieve
+                offerte. De werkelijke kosten hangen onder andere af van
+                de bereikbaarheid, de staat van de ondergrond, de omvang
+                van het project en de afvoer van afval.
+            </p>
+
+            <a href="index.html#contact" class="quote-button">
+                Offerte aanvragen <span>→</span>
+            </a>
+        </section>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© <span id="jaar"></span> M.A. Vloeren · Vloeren &amp; Renovatie</p>
+</footer>
+
+</body>
+</html>
