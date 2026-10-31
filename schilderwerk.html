@@ -1,57 +1,99 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Schilderwerk berekenen | M.A. Vloeren</title>
-<link rel="stylesheet" href="schilderwerk.css">
-<script src="schilderwerk.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bereken een prijsindicatie voor schilderwerk bij M.A. Vloeren.">
+  <title>Schilderwerk berekenen | M.A. Vloeren</title>
+  <link rel="stylesheet" href="schilderwerk.css">
+  <script src="schilderwerk.js" defer></script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-icon">⌂</span><span>M.A. VLOEREN<small>VLOEREN &amp; RENOVATIE</small></span></a>
-  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen">☰</button>
-  <nav class="main-nav" id="mainNav">
-    <a href="index.html#home">Home</a><a href="index.html#diensten">Diensten</a><a href="index.html#projecten">Projecten</a>
-    <a href="prijzen.html">Prijzen</a><a href="index.html#over-ons">Over ons</a><a href="index.html#contact">Contact</a>
-    <a class="nav-cta" href="index.html#contact">↗ Offerte aanvragen</a>
-  </nav>
-</header>
-<main class="page">
-  <p class="eyebrow">SCHILDERWERK · CALCULATIE</p>
-  <h1>Bereken uw <span>schilderwerk</span></h1>
-  <p class="intro">Kies de werkzaamheden en vul de aantallen in. U ziet alleen de totale prijsindicatie; de interne tarieven blijven verborgen.</p>
-  <div class="layout">
-    <section class="panel">
-      <h2>Uw schilderwerk samenstellen</h2>
-      <form id="paintForm">
-        <fieldset class="work-group"><legend>Wanden en plafonds (m²)</legend>
-          <div class="form-field"><label for="walls">Wanden schilderen — aantal m²</label><input id="walls" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 40"></div>
-          <div class="form-field"><label for="ceiling">Plafond schilderen — aantal m²</label><input id="ceiling" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 25"></div>
-          <div class="form-field"><label for="darkWalls">Wanden in een donkere kleur — aantal m²</label><input id="darkWalls" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 15"></div>
-          <div class="form-field"><label for="preparation">Voorstrijk / muur voorbereiden — aantal m²</label><input id="preparation" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 40"></div>
-          <div class="form-field"><label for="plamuren">Plamuren en wanden egaliseren — aantal m²</label><input id="plamuren" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 20"></div>
-        </fieldset>
-        <fieldset class="work-group"><legend>Deuren en radiatoren (stuks)</legend>
-          <div class="form-field"><label for="doors">Deuren schilderen — aantal deuren</label><input id="doors" type="number" min="0" step="1" placeholder="Aantal deuren"></div>
-          <div class="form-field"><label for="radiators">Radiatoren schilderen — aantal radiatoren</label><input id="radiators" type="number" min="0" step="1" placeholder="Aantal radiatoren"></div>
-        </fieldset>
-        <fieldset class="work-group"><legend>Kozijnen en houtwerk (strekkende meter)</legend>
-          <div class="form-field"><label for="woodwork">Kozijnen en houtwerk schilderen — aantal meter</label><input id="woodwork" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 12"></div>
-        </fieldset>
-        <button class="primary-button" type="submit">Bereken totale prijs <span>→</span></button>
-        <button class="reset-button" id="resetForm" type="reset">Opnieuw invullen</button>
-      </form>
-    </section>
-    <aside class="panel result-panel" aria-live="polite">
-      <div class="result-icon">✧</div><p class="eyebrow">UW OVERZICHT</p><h2>Totale prijs</h2>
-      <p class="result-description">Vul de gewenste werkzaamheden in en bereken uw prijsindicatie.</p>
-      <div class="total-box"><span class="total-label">Totale prijsindicatie</span><output id="totalPrice">Nog niet berekend</output><p id="resultNote">De prijs wordt berekend op basis van uw invoer.</p></div>
-      <a class="secondary-button" href="index.html#contact">Offerte aanvragen <span>→</span></a>
-      <p class="fine-print">Dit is een indicatie. De definitieve offerte kan afhangen van de staat van de ondergrond, bereikbaarheid, materiaalkeuze en werkzaamheden ter plaatse.</p>
-    </aside>
-  </div>
-</main>
-<footer>© <span id="currentYear"></span> M.A. Vloeren · Vloeren &amp; renovatie</footer>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="M.A. Vloeren home">
+      <span class="brand-icon" aria-hidden="true">⌂</span>
+      <span>M.A. VLOEREN<small>VLOEREN &amp; RENOVATIE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Hoofdnavigatie">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#diensten">Diensten</a>
+      <a href="index.html#projecten">Projecten</a>
+      <a href="prijzen.html">Prijzen</a>
+      <a href="index.html#over-ons">Over ons</a>
+      <a href="index.html#contact">Contact</a>
+     <a href="#" class="secondary-button whatsappQuote">
+  Offerte aanvragen via WhatsApp
+</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">SCHILDERWERK · CALCULATIE</p>
+    <h1>Bereken uw <span>schilderwerk</span></h1>
+    <p class="intro">Selecteer de werkzaamheden en vul de aantallen in. U ziet alleen de totale prijsindicatie; de afzonderlijke tarieven blijven verborgen.</p>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Uw schilderwerk samenstellen</h2>
+        <form id="paintForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="walls">Muren schilderen (m²)</label>
+              <input id="walls" name="walls" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 40">
+            </div>
+            <div class="form-field">
+              <label for="ceiling">Plafond schilderen (m²)</label>
+              <input id="ceiling" name="ceiling" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 25">
+            </div>
+            <div class="form-field">
+              <label for="darkWalls">Donkere muren schilderen (m²)</label>
+              <input id="darkWalls" name="darkWalls" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 15">
+            </div>
+            <div class="form-field">
+              <label for="preparation">Voorbereiding (m²)</label>
+              <input id="preparation" name="preparation" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 20">
+            </div>
+            <div class="form-field">
+              <label for="plamuren">Plamuren / naden vullen (m²)</label>
+              <input id="plamuren" name="plamuren" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 10">
+            </div>
+            <div class="form-field">
+              <label for="doors">Deuren schilderen (aantal)</label>
+              <input id="doors" name="doors" type="number" min="0" step="1" placeholder="Bijvoorbeeld 3">
+            </div>
+            <div class="form-field">
+              <label for="radiators">Radiatoren schilderen (aantal)</label>
+              <input id="radiators" name="radiators" type="number" min="0" step="1" placeholder="Bijvoorbeeld 2">
+            </div>
+            <div class="form-field">
+              <label for="woodwork">Houtwerk schilderen (strekkende meter)</label>
+              <input id="woodwork" name="woodwork" type="number" min="0" step="0.5" placeholder="Bijvoorbeeld 12">
+            </div>
+          </div>
+          <button class="primary-button" type="submit">Bereken totale prijs <span aria-hidden="true">→</span></button>
+          <button class="reset-button" id="resetForm" type="reset">Opnieuw invullen</button>
+        </form>
+      </section>
+
+      <aside class="panel result-panel" aria-live="polite">
+        <div class="result-icon" aria-hidden="true">◇</div>
+        <p class="eyebrow">UW OVERZICHT</p>
+        <h2>Totale prijs</h2>
+        <p class="result-description">Vul de werkzaamheden in en bereken uw prijsindicatie.</p>
+        <div class="total-box">
+          <span class="total-label">Totale prijsindicatie</span>
+          <output id="totalPrice">Nog niet berekend</output>
+          <p id="resultNote">De prijs wordt berekend op basis van uw invoer.</p>
+        </div>
+     <a href="#" class="secondary-button whatsappQuote">
+  Offerte aanvragen via WhatsApp
+</a>
+        <p class="fine-print">De prijsindicatie is exclusief btw. De definitieve offerte kan afhangen van de staat van de ondergrond, materiaalkeuze en werkzaamheden ter plaatse.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>© <span id="currentYear"></span> M.A. Vloeren · Vloeren &amp; renovatie</footer>
 </body>
 </html>

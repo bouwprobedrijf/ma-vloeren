@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const PRICES = {
     klikPVC: 10,
     visgraat: 18,
+    laminaat: 7,
     egaliseren: 4,
     plinten: 2,
     oudeVloer: 10
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPrice = document.getElementById("totalPrice");
   const resultNote = document.getElementById("resultNote");
   const resultPanel = document.getElementById("resultPanel");
+  const whatsappQuote = document.getElementById("whatsappQuote");
 
   if (!form || !totalPrice || !resultPanel) {
     console.error("Vloerencalculator: controleer de HTML-elementen.");
@@ -51,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     check.addEventListener("change", () => {
       section.hidden = !check.checked;
 
-      // Verwijder de oude waarde als de optie uitgaat.
       if (!check.checked) {
         field.value = "";
         field.removeAttribute("required");
@@ -69,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currency: "EUR"
     }).format(amount);
 
+  // Bewaar de laatste berekende prijs en de ingevulde gegevens.
+  let calculatedQuote = null;
+
   // Berekening.
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -76,25 +80,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const area = Number($("area")?.value) || 0;
     const floorType = $("floorType")?.value;
 
-    // Controleer de hoofdoppervlakte.
-    if (area <= 0) {
+    if (area <= 0 || area > 10000) {
       alert("Vul een geldige oppervlakte in.");
       $("area")?.focus();
       return;
     }
 
-    // Basisprijs van de gekozen vloer.
-    let total = 0;
+    const floorPrices = {
+      "klik-pvc": PRICES.klikPVC,
+      "visgraat": PRICES.visgraat,
+      "laminaat": PRICES.laminaat
+    };
 
-    if (floorType === "klik-pvc") {
-      total += area * PRICES.klikPVC;
-    } else if (floorType === "visgraat") {
-      total += area * PRICES.visgraat;
-    } else {
+    if (!Object.prototype.hasOwnProperty.call(floorPrices, floorType)) {
       alert("Kies een geldig vloertype.");
       $("floorType")?.focus();
       return;
     }
+
+    // Basisprijs van de gekozen vloer.
+    let total = area * floorPrices[floorType];
+
+    const details = [];
+
+    details.push(
+      "Soort vloer: " +
+      {
+        "klik-pvc": "Klik PVC",
+        "visgraat": "Visgraat",
+        "laminaat": "Laminaat"
+      }[floorType]
+    );
+
+    details.push("Oppervlakte: " + area + " m²");
 
     // Oude vloer verwijderen.
     if ($("removeOld").checked) {
@@ -109,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       total += oldArea * PRICES.oudeVloer;
+      details.push("Oude vloer verwijderen: " + oldArea + " m²");
     }
 
     // Ondervloer egaliseren.
@@ -116,20 +135,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const levelArea = Number($("levelFloorArea").value) || 0;
 
       if (levelArea <= 0 || levelArea > area) {
-        alert(
-          "Vul een geldige oppervlakte in voor het egaliseren."
-        );
+        alert("Vul een geldige oppervlakte in voor het egaliseren.");
         $("levelFloorArea").focus();
         return;
       }
 
       total += levelArea * PRICES.egaliseren;
+      details.push("Ondervloer egaliseren: " + levelArea + " m²");
     }
 
     // Plinten plaatsen.
     if ($("skirting").checked) {
-      const skirtingMeters =
-        Number($("skirtingMeters").value) || 0;
+      const skirtingMeters = Number($("skirtingMeters").value) || 0;
 
       if (skirtingMeters <= 0) {
         alert("Vul het aantal strekkende meters plinten in.");
@@ -138,7 +155,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       total += skirtingMeters * PRICES.plinten;
+      details.push("Plinten plaatsen: " + skirtingMeters + " meter");
     }
+
+    // Bewaar de berekening voor WhatsApp.
+    calculatedQuote = {
+      total,
+      details,
+      area,
+      floorType
+    };
 
     // Toon alleen de totaalprijs.
     totalPrice.textContent = formatEuro(total);
@@ -148,12 +174,52 @@ document.addEventListener("DOMContentLoaded", () => {
         "Prijsindicatie exclusief btw. De definitieve prijs wordt bevestigd in de offerte.";
     }
 
-    // Scroll automatisch naar de berekende prijs.
     resultPanel.scrollIntoView({
       behavior: "smooth",
       block: "center"
     });
   });
+
+  // Offerte aanvragen via WhatsApp.
+  if (whatsappQuote) {
+    whatsappQuote.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (!calculatedQuote) {
+        alert("Vul eerst uw keuzes in en bereken de totale prijs.");
+        form.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+        return;
+      }
+
+      const message = [
+        "Hallo M.A. Vloeren,",
+        "",
+        "Ik wil graag een offerte aanvragen.",
+        "",
+        ...calculatedQuote.details,
+        "",
+        "Totale prijsindicatie exclusief btw: " +
+          formatEuro(calculatedQuote.total),
+        "",
+        "Kunt u hiervoor een offerte maken?"
+      ].join("\n");
+
+      // Vervang dit door uw eigen nummer:
+      // Nederlandse landcode 31, zonder de eerste 0.
+      const whatsappNumber = "31685886252";
+
+      const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    });
+  }
 
   // Jaar in de footer.
   const currentYear = $("currentYear");

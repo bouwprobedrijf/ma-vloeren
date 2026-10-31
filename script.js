@@ -33,7 +33,7 @@ document.querySelector("#quoteForm").addEventListener("submit", (event) => {
   const body = encodeURIComponent(
     `Naam: ${data.get("name")}\nE-mail: ${data.get("email")}\nDienst: ${data.get("service")}\n\nProject:\n${data.get("message")}`
   );
-  const businessEmail = ""; // Vul hier het zakelijke e-mailadres in.
+  const businessEmail = "awaad.bouw035@gmail.com"; // Vul hier het zakelijke e-mailadres in
   const status = document.querySelector("#formStatus");
 
   if (!businessEmail) {
