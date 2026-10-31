@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Bekijk de renovatieprojecten van M.A. Vloeren. Renovatie, afwerking en verbetering van woningen met oog voor detail.">
+
+    <title>Renovatieprojecten | M.A. VLOEREN</title>
+
+    <link rel="stylesheet" href="renovatieprojectenfoto.css">
+    <script src="renovatieprojectenfoto.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        <span class="logo-main">M.A. VLOEREN</span>
+        <span class="logo-sub">VLOEREN &amp; RENOVATIE</span>
+    </a>
+
+    <a href="index.html#projecten" class="back-link">
+        ← Alle projecten
+    </a>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="eyebrow">ONS WERK</div>
+
+        <h1>Renovatieprojecten</h1>
+
+        <p>
+            Ontdek onze renovatieprojecten. Van kleine verbeteringen
+            tot complete renovaties, met aandacht voor kwaliteit,
+            materiaal en afwerking.
+        </p>
+    </section>
+
+    <section class="projects">
+
+        <div class="eyebrow">ONZE PROJECTEN</div>
+
+        <h2>Onze renovaties</h2>
+
+        <p class="section-description">
+            Bekijk de foto's van onze gerealiseerde renovatieprojecten.
+        </p>
+
+        <div class="project-grid" id="projectGrid">
+
+            <!-- PROJECT 1: vervang de afbeelding door je eigen foto -->
+            <a href="images/renovatie-project-1.jpg"
+               class="project-card"
+               data-title="Complete woningrenovatie">
+
+                <img
+                    src="images/renovatie-project-1.jpg"
+                    alt="Complete woningrenovatie"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Complete woningrenovatie</h3>
+                    <p>Een frisse en moderne uitstraling</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 2 -->
+            <a href="images/renovatie-project-2.jpg"
+               class="project-card"
+               data-title="Woonkamer renovatie">
+
+                <img
+                    src="images/renovatie-project-2.jpg"
+                    alt="Woonkamer renovatie"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Woonkamer renovatie</h3>
+                    <p>Strak en netjes afgewerkt</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 3 -->
+            <a href="images/renovatie-project-3.jpg"
+               class="project-card"
+               data-title="Wand- en plafondafwerking">
+
+                <img
+                    src="images/renovatie-project-3.jpg"
+                    alt="Wand- en plafondafwerking"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Wand- en plafondafwerking</h3>
+                    <p>Een verzorgde afwerking</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 4 -->
+            <a href="images/renovatie-project-4.jpg"
+               class="project-card"
+               data-title="Traprenovatie">
+
+                <img
+                    src="images/renovatie-project-4.jpg"
+                    alt="Traprenovatie"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Traprenovatie</h3>
+                    <p>Met oog voor detail</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 5 -->
+            <a href="images/renovatie-project-5.jpg"
+               class="project-card"
+               data-title="Keukenrenovatie">
+
+                <img
+                    src="images/renovatie-project-5.jpg"
+                    alt="Keukenrenovatie"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Keukenrenovatie</h3>
+                    <p>Praktisch en modern</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 6 -->
+            <a href="images/renovatie-project-6.jpg"
+               class="project-card"
+               data-title="Interieur renovatie">
+
+                <img
+                    src="images/renovatie-project-6.jpg"
+                    alt="Interieur renovatie"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Interieur renovatie</h3>
+                    <p>Een nieuwe uitstraling voor je woning</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="eyebrow">JOUW WONING RENOVEREN?</div>
+
+        <h2>Ook renovatie nodig?</h2>
+
+        <p>
+            Neem contact met ons op voor meer informatie
+            of een vrijblijvende offerte.
+        </p>
+
+              
+<a href="https://wa.me/31685886252?text=Hallo%2C%20ik%20wil%20graag%20een%20offerte%20aanvragen%20bij%20M.A.%20VLOEREN."
+   class="offerte-button"
+   target="_blank"
+   rel="noopener noreferrer">
+   Offerte aanvragen
+</a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    © M.A. VLOEREN — Vloeren &amp; Renovatie
+</footer>
+
+<!-- Foto groot bekijken -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose"
+            aria-label="Sluiten">&times;</button>
+
+    <button class="lightbox-arrow previous" id="previousImage"
+            aria-label="Vorige foto">‹</button>
+
+    <img id="lightboxImage" src="" alt="Renovatieproject">
+
+    <button class="lightbox-arrow next" id="nextImage"
+            aria-label="Volgende foto">›</button>
+
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Bekijk tegelprojecten van M.A. VLOEREN. Tegelvloeren, wandtegels en moderne tegelafwerkingen.">
+
+    <title>Tegelprojecten | M.A. VLOEREN</title>
+
+    <link rel="stylesheet" href="tegelsfoto.css">
+    <script src="tegelsfoto.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        <span class="logo-main">M.A. VLOEREN</span>
+        <span class="logo-sub">VLOEREN &amp; RENOVATIE</span>
+    </a>
+
+    <a href="index.html#projecten" class="back-link">
+        ← Alle projecten
+    </a>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="eyebrow">ONS WERK</div>
+
+        <h1>Tegelprojecten</h1>
+
+        <p>
+            Ontdek onze tegelprojecten. Van moderne tegelvloeren tot
+            stijlvolle wandtegels, met oog voor detail en een nette afwerking.
+        </p>
+    </section>
+
+    <section class="projects">
+
+        <div class="eyebrow">ONZE PROJECTEN</div>
+
+        <h2>Onze tegelwerken</h2>
+
+        <p class="section-description">
+            Bekijk foto's van tegelvloeren en wandafwerkingen.
+        </p>
+
+        <div class="project-grid">
+
+            <!-- PROJECT 1 -->
+            <a href="images/tegels-project-1.jpg"
+               class="project-card"
+               data-title="Moderne tegelvloer">
+
+                <img src="images/tegels-project-1.jpg"
+                     alt="Moderne tegelvloer"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Moderne tegelvloer</h3>
+                    <p>Strak en tijdloos</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 2 -->
+            <a href="images/tegels-project-2.jpg"
+               class="project-card"
+               data-title="Grote grijze tegels">
+
+                <img src="images/tegels-project-2.jpg"
+                     alt="Grote grijze vloertegels"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Grote grijze tegels</h3>
+                    <p>Modern en elegant</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 3 -->
+            <a href="images/tegels-project-3.jpg"
+               class="project-card"
+               data-title="Marmerlook tegels">
+
+                <img src="images/tegels-project-3.jpg"
+                     alt="Tegels met marmerlook"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Marmerlook tegels</h3>
+                    <p>Luxe uitstraling</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 4 -->
+            <a href="images/tegels-project-4.jpg"
+               class="project-card"
+               data-title="Badkamertegels">
+
+                <img src="images/tegels-project-4.jpg"
+                     alt="Moderne badkamertegels"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Badkamertegels</h3>
+                    <p>Verzorgde afwerking</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 5 -->
+            <a href="images/tegels-project-5.jpg"
+               class="project-card"
+               data-title="Donkere tegels">
+
+                <img src="images/tegels-project-5.jpg"
+                     alt="Donkere decoratieve tegels"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Donkere tegels</h3>
+                    <p>Stijlvol en modern</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+            <!-- PROJECT 6 -->
+            <a href="images/tegels-project-6.jpg"
+               class="project-card"
+               data-title="Decoratieve wandtegels">
+
+                <img src="images/tegels-project-6.jpg"
+                     alt="Decoratieve wandtegels"
+                     loading="lazy">
+
+                <div class="project-overlay">
+                    <h3>Decoratieve wandtegels</h3>
+                    <p>Een uniek interieur</p>
+                    <span>Bekijk foto ↗</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="eyebrow">NIEUWE TEGELS NODIG?</div>
+
+        <h2>Jouw vloer of wand vernieuwen?</h2>
+
+        <p>
+            Neem contact met ons op voor meer informatie
+            of een vrijblijvende offerte.
+        </p>
+
+             
+<a href="https://wa.me/31685886252?text=Hallo%2C%20ik%20wil%20graag%20een%20offerte%20aanvragen%20bij%20M.A.%20VLOEREN."
+   class="offerte-button"
+   target="_blank"
+   rel="noopener noreferrer">
+   Offerte aanvragen
+</a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    © M.A. VLOEREN — Vloeren &amp; Renovatie
+</footer>
+
+<!-- Grote foto bekijken -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+
+    <button class="lightbox-close" id="lightboxClose"
+            aria-label="Sluiten">&times;</button>
+
+    <button class="lightbox-arrow previous" id="previousImage"
+            aria-label="Vorige foto">‹</button>
+
+    <img id="lightboxImage" src="" alt="Tegelproject">
+
+    <button class="lightbox-arrow next" id="nextImage"
+            aria-label="Volgende foto">›</button>
+
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+
+</div>
+
+</body>
+</html>
